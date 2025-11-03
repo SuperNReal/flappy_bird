@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -225,7 +226,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 0.9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -256,7 +257,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
 --- !u!1 &861319607
+=======
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
+  m_ComponentVersion: 1
+  m_AssetsPPU: 100
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_CropFrame: 0
+  m_GridSnapping: 0
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
+--- !u!1 &1063278437
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,23 +293,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   - component: {fileID: 861319609}
   - component: {fileID: 861319608}
   - component: {fileID: 861319610}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
+=======
+  - component: {fileID: 1063278439}
+  - component: {fileID: 1063278438}
+  - component: {fileID: 1063278440}
+  m_Layer: 0
+  m_Name: robot_bird_0
+  m_TagString: Player
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
 --- !u!212 &861319608
+=======
+--- !u!212 &1063278438
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   m_GameObject: {fileID: 861319607}
+=======
+  m_GameObject: {fileID: 1063278437}
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -318,11 +364,19 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   m_SortingLayerID: 638360255
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.13664329, g: 1, b: 0, a: 1}
+=======
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -5249455113232175024, guid: 6398f09832161f4d8ac826399c7ada3d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -332,27 +386,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
 --- !u!4 &861319609
+=======
+--- !u!4 &1063278439
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   m_GameObject: {fileID: 861319607}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.09831, y: -0.08249, z: 0}
+=======
+  m_GameObject: {fileID: 1063278437}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 0, z: 0}
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
 --- !u!114 &861319610
+=======
+--- !u!114 &1063278440
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   m_GameObject: {fileID: 861319607}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -360,6 +430,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
 --- !u!1 &1580764826
+=======
+  m_GameObject: {fileID: 1063278437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35594f3f6951cac7cb38874c43eb4eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!1 &1148350086
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,8 +446,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   - component: {fileID: 1580764828}
   - component: {fileID: 1580764827}
+=======
+  - component: {fileID: 1148350088}
+  - component: {fileID: 1148350087}
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
   m_Layer: 0
   m_Name: the_background
   m_TagString: Untagged
@@ -376,13 +460,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
 --- !u!212 &1580764827
+=======
+--- !u!212 &1148350087
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   m_GameObject: {fileID: 1580764826}
+=======
+  m_GameObject: {fileID: 1148350086}
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -420,10 +512,17 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   m_SortingLayerID: -29824657
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -7443756053782179069, guid: b30804189204863428f4ff30b23c9f27, type: 3}
+=======
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 2340564595809866820, guid: 26389d7f99a2805e89795eb306d91d2b, type: 3}
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -434,17 +533,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
 --- !u!4 &1580764828
+=======
+--- !u!4 &1148350088
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   m_GameObject: {fileID: 1580764826}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.1334, y: -0.1159, z: 0}
   m_LocalScale: {x: 20.16107, y: 11.741399, z: 1}
+=======
+  m_GameObject: {fileID: 1148350086}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0646, y: -0.2102, z: 0}
+  m_LocalScale: {x: 4.025485, y: 2.3583188, z: 1}
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -454,5 +565,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   - {fileID: 1580764828}
   - {fileID: 861319609}
+=======
+  - {fileID: 1148350088}
+  - {fileID: 1063278439}
+>>>>>>> 0050a26 (added background and player):Assets/Scenes/first_scene.unity

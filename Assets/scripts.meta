@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 3189dbadef7f4604ea1a81a3f43ce6c0
+=======
+guid: 2f1bd679f6a697b8cb9d9e94abef403f
+>>>>>>> 0050a26 (added background and player)
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
