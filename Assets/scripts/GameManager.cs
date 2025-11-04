@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class GameManager : MonoBehaviour
     public bool GameOver { get; private set; }
     public int Score { get; private set; }
 
+
     [Header("UI (TMP only)")]
+    [SerializeField] Bird player;
     [SerializeField] GameObject startPanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] TextMeshProUGUI scoreTMP;
@@ -33,8 +36,8 @@ public class GameManager : MonoBehaviour
 
     public void Begin()
     {
-        if (GameRunning || GameOver) return;
         GameRunning = true;
+        player.begin();
         if (startPanel) startPanel.SetActive(false);
     }
 
@@ -61,5 +64,6 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("bro, it's working. wtf is wronge with it????");
     }
 }
