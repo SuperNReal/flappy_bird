@@ -60,5 +60,8 @@ TagManager:
     uniqueID: 3740634369
 >>>>>>> 2e01b05 (added functionality. kinda tbh)
     locked: 0
+  - name: UI
+    uniqueID: 231044841
+    locked: 0
   m_RenderingLayers:
   - Default

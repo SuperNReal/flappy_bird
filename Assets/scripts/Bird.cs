@@ -19,33 +19,26 @@ public class Bird : MonoBehaviour
     [SerializeField] float maxUpTilt = 35f;
     [SerializeField] float maxDownTilt = -80f;
 
-    [Header("Behavior")]
-    [SerializeField] bool startOnFirstInput = true;
 
     Rigidbody2D rb;
-    bool alive = true;
+    bool alive = false;
     float initialGravity;
-    bool localGameBegan = false; // used if GameManager is present but not required
+    
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         initialGravity = Mathf.Max(1.5f, rb.gravityScale);
-        if (startOnFirstInput) rb.gravityScale = 0f; // no gravity until first tap
-    }
+        rb.gravityScale = 0f;
+    }    
 
     void Update()
     {
         // Start game on first input
-        if (!IsGameRunning() && alive && WasPressedThisFrame())
+        if (alive && WasPressedThisFrame())
         {
-            BeginGame();
+            // BeginGame();
             rb.gravityScale = initialGravity;
-            Flap();
-        }
-        // Flap while running
-        else if (IsGameRunning() && alive && WasPressedThisFrame())
-        {
             Flap();
         }
 
@@ -62,28 +55,14 @@ public class Bird : MonoBehaviour
         }
     }
 
-    bool IsGameRunning()
+    public void begin()
     {
-#if UNITY_2020_1_OR_NEWER
-        // Safely handle absence of GameManager
-        if (GameManager.Instance != null)
-            return GameManager.Instance.GameRunning && !GameManager.Instance.GameOver;
-#endif
-        return localGameBegan;
+        alive = true;
+        transform.position = new Vector3(-5.02f, 2.08f, 0f);
+        rb.gravityScale = initialGravity;
+        Flap();
     }
-
-    void BeginGame()
-    {
-#if UNITY_2020_1_OR_NEWER
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.Begin();
-            return;
-        }
-#endif
-        localGameBegan = true;
-    }
-
+    
     void Flap()
     {
         // zero-out vertical speed for crisp, consistent jumps
@@ -96,13 +75,10 @@ public class Bird : MonoBehaviour
         if (!alive) return;
         alive = false;
 
-#if UNITY_2020_1_OR_NEWER
         if (GameManager.Instance != null)
             GameManager.Instance.TriggerGameOver();
-#endif
-        // If no GameManager, you could disable controls here or show UI via another script.
     }
-
+    
     bool WasPressedThisFrame()
     {
 #if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
