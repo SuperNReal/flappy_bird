@@ -42,6 +42,7 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: background
+<<<<<<< HEAD
     uniqueID: 4265142639
     locked: 0
   - name: world
@@ -49,6 +50,15 @@ TagManager:
     locked: 0
   - name: player
     uniqueID: 638360255
+=======
+    uniqueID: 514723549
+    locked: 0
+  - name: objects
+    uniqueID: 637652293
+    locked: 0
+  - name: player
+    uniqueID: 3740634369
+>>>>>>> 2e01b05 (added functionality. kinda tbh)
     locked: 0
   m_RenderingLayers:
   - Default
