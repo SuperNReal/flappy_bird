@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class button_start : MonoBehaviour
 {
-    public Button myButton; // Assign this in the Inspector
+    public Button myButton;
 
     void Start()
     {

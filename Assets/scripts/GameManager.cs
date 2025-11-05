@@ -30,15 +30,20 @@ public class GameManager : MonoBehaviour
         Score = 0;
         UpdateScoreUI();
 
-        if (startPanel) startPanel.SetActive(true);
-        if (gameOverPanel) gameOverPanel.SetActive(false);
+        startPanel.SetActive(true);
+        gameOverPanel.SetActive(false);
     }
 
     public void Begin()
     {
         GameRunning = true;
         player.begin();
-        if (startPanel) startPanel.SetActive(false);
+        startPanel.SetActive(false);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void AddScore(int amount = 1)
@@ -58,12 +63,6 @@ public class GameManager : MonoBehaviour
 
     void UpdateScoreUI()
     {
-        if (scoreTMP) scoreTMP.SetText("{0}", Score);
-    }
-
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("bro, it's working. wtf is wronge with it????");
+        scoreTMP.SetText("{0}", Score);
     }
 }

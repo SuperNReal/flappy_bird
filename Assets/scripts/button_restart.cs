@@ -16,6 +16,5 @@ public class button_restart : MonoBehaviour
     void OnButtonClick()
     {
         GameManager.Instance.Restart();
-        Debug.Log("bro");
     }
 }
