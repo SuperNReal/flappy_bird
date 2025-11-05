@@ -7,6 +7,7 @@ using UnityEngine.InputSystem; // Keyboard, Mouse, Touchscreen
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Animator))]
 public class Bird : MonoBehaviour
 {
     [Header("Flight")]
@@ -21,6 +22,8 @@ public class Bird : MonoBehaviour
 
 
     Rigidbody2D rb;
+
+    private Animator anim;
     bool alive = false;
     float initialGravity;
     
@@ -28,14 +31,15 @@ public class Bird : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        initialGravity = Mathf.Max(1.5f, rb.gravityScale);
-        rb.gravityScale = 0f;
+        anim = GetComponent<Animator>();
+        initialGravity = rb.gravityScale;
+        this.Restart();
     }    
 
     void Update()
     {
         // Start game on first input
-        if (alive && WasPressedThisFrame())
+        if (this.alive && WasPressedThisFrame())
         {
             // BeginGame();
             rb.gravityScale = initialGravity;
@@ -43,16 +47,29 @@ public class Bird : MonoBehaviour
         }
 
         // Clamp fall speed for stability
-        if (alive && rb.linearVelocity.y < maxFallSpeed)
+        if (this.alive && this.rb.linearVelocity.y < maxFallSpeed)
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, maxFallSpeed);
 
         // Smooth tilt based on vertical speed
-        if (alive)
+        if (this.alive)
         {
             float targetZ = Mathf.Clamp(rb.linearVelocity.y * tiltFactor, maxDownTilt, maxUpTilt);
             float z = Mathf.LerpAngle(transform.eulerAngles.z, targetZ, Time.deltaTime * tiltLerp);
             transform.rotation = Quaternion.Euler(0f, 0f, z);
         }
+
+        if (this.rb.linearVelocity.y < 0)
+        {
+            anim.SetBool("is_moving_up", false);
+        } else
+        {
+            anim.SetBool("is_moving_up", true);
+        }
+    }
+
+    public void Restart()
+    {
+        rb.gravityScale = 0f;
     }
 
     public void begin()
@@ -65,7 +82,6 @@ public class Bird : MonoBehaviour
     
     void Flap()
     {
-        // zero-out vertical speed for crisp, consistent jumps
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         rb.AddForce(Vector2.up * flapForce, ForceMode2D.Impulse);
     }
@@ -75,8 +91,7 @@ public class Bird : MonoBehaviour
         if (!alive) return;
         alive = false;
 
-        if (GameManager.Instance != null)
-            GameManager.Instance.TriggerGameOver();
+        GameManager.Instance.TriggerGameOver();
     }
     
     bool WasPressedThisFrame()
