@@ -1005,7 +1005,7 @@ GameObject:
   - component: {fileID: 1063278442}
   - component: {fileID: 1063278443}
   m_Layer: 0
-  m_Name: robot_bird
+  m_Name: RoboBird
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1096,6 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35594f3f6951cac7cb38874c43eb4eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  gameState: {fileID: 11400000, guid: 7ace87d138d010e4c8ad855ac77ed20b, type: 2}
   flapForce: 5
   maxFallSpeed: -12
   tiltFactor: 6
@@ -1198,7 +1199,7 @@ GameObject:
   - component: {fileID: 1113953223}
   - component: {fileID: 1113953222}
   m_Layer: 0
-  m_Name: spawner
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1391,7 +1392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1352029694
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1540,7 +1541,7 @@ GameObject:
   - component: {fileID: 1937428647}
   - component: {fileID: 1937428646}
   m_Layer: 0
-  m_Name: background_ez_0
+  m_Name: BackgroundEz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1898,30 +1899,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2034762484}
-  - component: {fileID: 2034762483}
+  - component: {fileID: 2034762485}
   m_Layer: 0
-  m_Name: Game
+  m_Name: GameFlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2034762483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034762482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71038f9e968af92da0ca55d004c0f71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  player: {fileID: 1063278440}
-  startPanel: {fileID: 889382697}
-  gameOverPanel: {fileID: 817873624}
-  scoreTMP: {fileID: 165218737}
 --- !u!4 &2034762484
 Transform:
   m_ObjectHideFlags: 0
@@ -1937,6 +1922,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2034762485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034762482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5792688779c584479a9111dfd4e65c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameFlowController
+  gameState: {fileID: 11400000, guid: 7ace87d138d010e4c8ad855ac77ed20b, type: 2}
+  startPanel: {fileID: 0}
+  gameOverPanel: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
