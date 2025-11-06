@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
 
     [Header("UI (TMP only)")]
+    [SerializeField] GameStateSO gameState;
     [SerializeField] Bird player;
     [SerializeField] GameObject startPanel;
     [SerializeField] GameObject gameOverPanel;
@@ -20,11 +21,9 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        // Simple singleton
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
 
-        Time.timeScale = 1f;
         GameRunning = false;
         GameOver = false;
         Score = 0;

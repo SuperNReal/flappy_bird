@@ -10,6 +10,9 @@ using UnityEngine.InputSystem; // Keyboard, Mouse, Touchscreen
 [RequireComponent(typeof(Animator))]
 public class Bird : MonoBehaviour
 {
+    [Header("Game State")]
+    [SerializeField] GameStateSO gameState;
+    
     [Header("Flight")]
     [SerializeField] float flapForce = 5f;
     [SerializeField] float maxFallSpeed = -12f;
@@ -21,11 +24,12 @@ public class Bird : MonoBehaviour
     [SerializeField] float maxDownTilt = -80f;
 
 
+    private Animator anim;
     Rigidbody2D rb;
 
-    private Animator anim;
-    bool alive = false;
     float initialGravity;
+    bool alive = false;
+    bool controlEnabled;
     
 
     void Awake()
@@ -33,30 +37,28 @@ public class Bird : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         initialGravity = rb.gravityScale;
-        this.Restart();
+        this.HandleGameOver();
     }    
 
     void Update()
     {
-        // Start game on first input
-        if (this.alive && WasPressedThisFrame())
+        if (controlEnabled)
         {
-            // BeginGame();
-            rb.gravityScale = initialGravity;
-            Flap();
-        }
+            if (WasPressedThisFrame())
+            {
+                rb.gravityScale = initialGravity;
+                Flap();
+            }
 
-        // Clamp fall speed for stability
-        if (this.alive && this.rb.linearVelocity.y < maxFallSpeed)
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, maxFallSpeed);
+            // Clamp fall speed for stability
+            if (this.rb.linearVelocity.y < maxFallSpeed)
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, maxFallSpeed);
 
-        // Smooth tilt based on vertical speed
-        if (this.alive)
-        {
             float targetZ = Mathf.Clamp(rb.linearVelocity.y * tiltFactor, maxDownTilt, maxUpTilt);
             float z = Mathf.LerpAngle(transform.eulerAngles.z, targetZ, Time.deltaTime * tiltLerp);
             transform.rotation = Quaternion.Euler(0f, 0f, z);
         }
+        
 
         if (this.rb.linearVelocity.y < 0)
         {
@@ -67,17 +69,20 @@ public class Bird : MonoBehaviour
         }
     }
 
-    public void Restart()
+    public void HandleGameOver()
     {
+        controlEnabled = false;
+        transform.position = new Vector3(-5.02f, 2.08f, 0f);
+        rb.gravityScale = initialGravity;
         rb.gravityScale = 0f;
     }
 
     public void begin()
     {
-        alive = true;
+        controlEnabled = true;
         transform.position = new Vector3(-5.02f, 2.08f, 0f);
         rb.gravityScale = initialGravity;
-        Flap();
+        rb.gravityScale = 0f;
     }
     
     void Flap()
@@ -88,10 +93,7 @@ public class Bird : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D _)
     {
-        if (!alive) return;
-        alive = false;
-
-        GameManager.Instance.TriggerGameOver();
+        if (!gameState.GameOver) gameState.EndGame();
     }
     
     bool WasPressedThisFrame()
