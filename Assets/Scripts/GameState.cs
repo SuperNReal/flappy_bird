@@ -13,6 +13,7 @@ public int Score { get; private set; }
 
 public event Action OnGameStart;
 public event Action OnGameOver;
+public event Action OnGameRestart;
 public event Action<bool> OnPauseChanged;
 public event Action<int> OnScoreChanged;
 
@@ -41,12 +42,13 @@ Running = false; GameOver = true;
 OnGameOver?.Invoke();
 }
 
+public void RestartGame() => OnGameRestart();
 
 public void SetPaused(bool paused)
 {
-if (Paused == paused) return;
-Paused = paused;
-OnPauseChanged?.Invoke(Paused);
+    if (Paused == paused) return;
+    Paused = paused;
+    OnPauseChanged?.Invoke(Paused);
 }
 
 

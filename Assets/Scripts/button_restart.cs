@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class button_restart : MonoBehaviour
 {
+    [Header("Game State")]
+    [SerializeField] GameStateSO gameState;
+
     public Button myButton; // Assign this in the Inspector
 
     void Start()
@@ -15,6 +18,6 @@ public class button_restart : MonoBehaviour
 
     void OnButtonClick()
     {
-        GameManager.Instance.Restart();
+        gameState.RestartGame();
     }
 }

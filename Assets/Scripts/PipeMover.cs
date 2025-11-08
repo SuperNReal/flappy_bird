@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PipeMover : MonoBehaviour
 {
+    [SerializeField] GameStateSO gameState;   
     [SerializeField] float speed = 2.5f;
     [SerializeField] float destroyX = -10f;
 
@@ -26,9 +27,9 @@ public class PipeMover : MonoBehaviour
     void Update()
     {
         // Run/stop based on GameManager (works even if there isn't one)
-        if (ShouldRun())
+        if (gameState.Running & !gameState.Paused & !gameState.GameOver)
             SetVel(Vector2.left * speed);
-        else
+        else if (gameState.GameOver)
             SetVel(Vector2.zero);
 
         // Cleanup when off-screen
@@ -36,12 +37,6 @@ public class PipeMover : MonoBehaviour
             Destroy(gameObject);
     }
 
-    bool ShouldRun()
-    {
-        if (GameManager.Instance != null)
-            return GameManager.Instance.GameRunning && !GameManager.Instance.GameOver;
-        return true; // no GameManager: always move
-    }
 
     // ---- linear velocity helper (Unity 6+) with fallback ----
 #if UNITY_6000_0_OR_NEWER

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ScoreZone : MonoBehaviour
 {
+    [SerializeField] GameStateSO gameState;
+    
     bool counted = false;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -10,7 +12,7 @@ public class ScoreZone : MonoBehaviour
         if (other.GetComponent<Bird>() != null)
         {
             counted = true;
-            GameManager.Instance.AddScore(1);
+            gameState.AddScore(1);
         }
     }
 }

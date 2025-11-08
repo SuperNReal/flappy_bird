@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class button_start : MonoBehaviour
 {
+    [Header("Game State")]
+    [SerializeField] GameStateSO gameState;
+
     public Button myButton;
 
     void Start()
@@ -15,6 +18,6 @@ public class button_start : MonoBehaviour
 
     void OnButtonClick()
     {
-        GameManager.Instance.Begin();
+        gameState.StartGame();
     }
 }

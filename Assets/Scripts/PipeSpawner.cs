@@ -1,8 +1,11 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class PipeSpawner : MonoBehaviour
+public class PipeSpawner : MonoBehaviour, IRestartable
 {
+    [Header("Game State")]
+    [SerializeField] GameStateSO gameState;
+    
     [Header("Prefab")]
     [SerializeField] GameObject pipePairPrefab;
 
@@ -26,7 +29,7 @@ public class PipeSpawner : MonoBehaviour
 
     void Update()
     {
-        if (!ShouldRun()) return;
+        if (!gameState.Running || gameState.GameOver || gameState.Paused) return;
 
         timer += Time.deltaTime;
         if (timer >= spawnInterval)
@@ -34,6 +37,13 @@ public class PipeSpawner : MonoBehaviour
             timer = 0f;
             Spawn();
         }
+    }
+
+    public void OnRestart()
+    {
+        timer = 0f;
+        for (int i = spawnParent.childCount - 1; i >= 0; i--)
+        Destroy(spawnParent.GetChild(i).gameObject);
     }
 
     void Spawn()
@@ -57,14 +67,6 @@ public class PipeSpawner : MonoBehaviour
             }
         }
         return xSpawn;
-    }
-
-    bool ShouldRun()
-    {
-        // Works with or without the GameManager in the scene
-        if (GameManager.Instance != null)
-            return GameManager.Instance.GameRunning && !GameManager.Instance.GameOver;
-        return true;
     }
 
 #if UNITY_EDITOR
