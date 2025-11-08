@@ -96,6 +96,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -137,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfc5e09b43d76009aa3f7aeaa1ec507c
-      internalID: 790383611
+      spriteID: 14cac5457f080ea42a63377fdd6741cb
+      internalID: -488732211
       vertices: []
       indices: 
       edges: []
@@ -159,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58bb72c08e88b6fac8400ce30d86c57d
-      internalID: -1787036523
+      spriteID: 588fae35800140a458829ea2e35d8bdb
+      internalID: -25755954
       vertices: []
       indices: 
       edges: []
@@ -181,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2a1696efd2e9451e94679b245399bf1
-      internalID: -711245100
+      spriteID: 2e940cd4be51c5447bbf3807a106fde5
+      internalID: -814082696
       vertices: []
       indices: 
       edges: []
@@ -191,7 +204,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c8dc0b2b3860336dcbbd90588bb92c63
+    spriteID: 51897dd38dd1fa845a24f3019e0badf2
     internalID: 0
     vertices: []
     indices: 
@@ -204,9 +217,9 @@ TextureImporter:
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":33.0,"y":33.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       RoboBird_0: 8855445567883878673
-      RoboBird_1: 790383611
-      RoboBird_2: -1787036523
-      RoboBird_3: -711245100
+      RoboBird_1: -488732211
+      RoboBird_2: -25755954
+      RoboBird_3: -814082696
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

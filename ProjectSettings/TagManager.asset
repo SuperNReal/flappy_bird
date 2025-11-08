@@ -42,26 +42,16 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: background
-<<<<<<< HEAD
-    uniqueID: 4265142639
-    locked: 0
-  - name: world
-    uniqueID: 2885354513
+    uniqueID: 2757347889
     locked: 0
   - name: player
-    uniqueID: 638360255
-=======
-    uniqueID: 514723549
+    uniqueID: 1654431267
     locked: 0
-  - name: objects
-    uniqueID: 637652293
-    locked: 0
-  - name: player
-    uniqueID: 3740634369
->>>>>>> 2e01b05 (added functionality. kinda tbh)
+  - name: overworld
+    uniqueID: 2334488833
     locked: 0
   - name: UI
-    uniqueID: 231044841
+    uniqueID: 535098125
     locked: 0
   m_RenderingLayers:
   - Default
