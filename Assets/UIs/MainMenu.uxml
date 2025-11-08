@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIs/MainMenu.uss?fileID=7433441132597879392&amp;guid=bfc705e21c7adbd4aad083205c9671ee&amp;type=3#MainMenu" />
+    <Style src="project://database/Assets/UIs/Fail.uss?fileID=7433441132597879392&amp;guid=e8b7b1cf034c4de47855a482848425ce&amp;type=3#Fail" />
+    <ui:GroupBox style="align-items: flex-start; justify-content: flex-start; align-self: center; flex-direction: column; height: 442px; width: 339px;">
+        <ui:Button text="Play" name="ButtonPlay" selectable="true" style="-unity-font-style: bold; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); background-color: rgb(17, 205, 0);" />
+        <ui:Button text="Settings" focusable="true" name="ButtonSettings" selectable="true" style="-unity-font-style: bold; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); background-color: rgb(146, 136, 136);" />
+        <ui:Button text="Exit" name="ButtonExit" selectable="true" style="-unity-font-style: bold; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); background-color: rgb(255, 0, 0);" />
+    </ui:GroupBox>
+</ui:UXML>
