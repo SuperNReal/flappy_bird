@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 #if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
@@ -8,7 +9,7 @@ using UnityEngine.InputSystem; // Keyboard, Mouse, Touchscreen
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Animator))]
-public class Bird : MonoBehaviour
+public class Bird : MonoBehaviour, IRestartable
 {
     [Header("Game State")]
     [SerializeField] GameStateSO gameState;
@@ -26,9 +27,9 @@ public class Bird : MonoBehaviour
 
     private Animator anim;
     Rigidbody2D rb;
+    Vector3 original_pos;
 
     float initialGravity;
-    bool alive = false;
     bool controlEnabled;
     
 
@@ -36,54 +37,70 @@ public class Bird : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
         initialGravity = rb.gravityScale;
-        this.HandleGameOver();
+        original_pos = transform.position;
+        rb.gravityScale = 0f;
     }    
 
     void Update()
     {
-        if (controlEnabled)
+        if (!controlEnabled) return;
+
+        if (WasPressedThisFrame())
         {
-            if (WasPressedThisFrame())
-            {
-                rb.gravityScale = initialGravity;
-                Flap();
-            }
-
-            // Clamp fall speed for stability
-            if (this.rb.linearVelocity.y < maxFallSpeed)
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, maxFallSpeed);
-
-            float targetZ = Mathf.Clamp(rb.linearVelocity.y * tiltFactor, maxDownTilt, maxUpTilt);
-            float z = Mathf.LerpAngle(transform.eulerAngles.z, targetZ, Time.deltaTime * tiltLerp);
-            transform.rotation = Quaternion.Euler(0f, 0f, z);
+            rb.gravityScale = initialGravity;
+            Flap();
         }
+
+        if (rb.linearVelocity.y < maxFallSpeed)
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, maxFallSpeed);
+
+        float targetZ = Mathf.Clamp(rb.linearVelocity.y * tiltFactor, maxDownTilt, maxUpTilt);
+        float z = Mathf.LerpAngle(transform.eulerAngles.z, targetZ, Time.deltaTime * tiltLerp);
+        transform.rotation = Quaternion.Euler(0f, 0f, z);
         
 
-        if (this.rb.linearVelocity.y < 0)
-        {
-            anim.SetBool("is_moving_up", false);
-        } else
+        if (rb.linearVelocity.y > 0)
         {
             anim.SetBool("is_moving_up", true);
+        } else
+        {
+            anim.SetBool("is_moving_up", false);
         }
     }
 
-    public void HandleGameOver()
+    void OnEnable()
     {
-        controlEnabled = false;
-        transform.position = new Vector3(-5.02f, 2.08f, 0f);
-        rb.gravityScale = initialGravity;
-        rb.gravityScale = 0f;
+        gameState.OnGameStart += HandleStart;
+        gameState.OnGameOver += HandleGameOver;
     }
-
-    public void begin()
+    void OnDisable()
+    {
+        gameState.OnGameStart -= HandleStart;
+        gameState.OnGameOver -= HandleGameOver;
+    }
+    
+    public void HandleStart()
     {
         controlEnabled = true;
-        transform.position = new Vector3(-5.02f, 2.08f, 0f);
         rb.gravityScale = initialGravity;
-        rb.gravityScale = 0f;
     }
+    public void HandleGameOver()
+    {
+        anim.SetBool("is_dead", true);
+        controlEnabled = false;
+    }
+    public void OnRestart()
+    {
+        anim.SetBool("is_dead", false);
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.gravityScale = 0;
+
+        transform.position = original_pos;
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+    } 
     
     void Flap()
     {

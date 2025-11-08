@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0fddbf7484cc19aa181e7c67fdcfc4a1
+guid: 03dddf1f8454b1c0483e9a455ff302f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5511982322241440918
-    second: xp_0
+      213: 1304208510633726333
+    second: Pipe_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: xp_0
+      name: Pipe_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2736
-        height: 1824
+        width: 50
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a63f09a18418183b0800000000000000
-      internalID: -5511982322241440918
+      spriteID: d715d5dfaba791210800000000000000
+      internalID: 1304208510633726333
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      xp_0: -5511982322241440918
+      Pipe_0: 1304208510633726333
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

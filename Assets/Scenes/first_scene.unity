@@ -153,8 +153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -92.12, y: 13.414}
-  m_SizeDelta: {x: 15.75, y: 23.172}
+  m_AnchoredPosition: {x: -83.6, y: 7.9}
+  m_SizeDelta: {x: 158.31, y: 39.423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &165218737
 MonoBehaviour:
@@ -176,12 +176,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0
-
-'
+  m_text: 'Score: {0}'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -205,8 +203,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -393,6 +391,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197143829}
   m_CullTransparentMesh: 1
+--- !u!1 &322572731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 322572733}
+  - component: {fileID: 322572732}
+  m_Layer: 0
+  m_Name: ScoreUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &322572732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322572731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e6912f30af48b0e8240484f28041aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreUI
+  gameState: {fileID: 11400000, guid: 7ace87d138d010e4c8ad855ac77ed20b, type: 2}
+  scoreText: {fileID: 165218737}
+  startPanel: {fileID: 889382697}
+  gameOverPanel: {fileID: 817873624}
+--- !u!4 &322572733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322572731}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3367, y: 0.17544, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,6 +1036,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976269537}
   m_CullTransparentMesh: 1
+--- !u!1 &1046719336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1046719337}
+  m_Layer: 0
+  m_Name: Pipes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1046719337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046719336}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3367, y: 0.17544, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1063278437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,12 +1135,12 @@ SpriteRenderer:
   m_SortingLayerID: -554332927
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 903450714990397700, guid: 8468a98a444b05a468edf264309ffb55, type: 3}
+  m_Sprite: {fileID: 8855445567883878673, guid: 8f88225e20eb0178aa4d7b8c40f944df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.33, y: 0.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1079,7 +1156,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.02, y: 2.08, z: 0}
-  m_LocalScale: {x: 1.1901025, y: 1.1901025, z: 0.1901}
+  m_LocalScale: {x: 4, y: 4, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1129,7 +1206,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 1
+  m_Constraints: 0
 --- !u!58 &1063278442
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1165,7 +1242,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.16225724
 --- !u!95 &1063278443
 Animator:
   serializedVersion: 7
@@ -1217,13 +1294,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b8fff259800e6439aa83517b067efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  gameState: {fileID: 11400000, guid: 7ace87d138d010e4c8ad855ac77ed20b, type: 2}
   pipePairPrefab: {fileID: 7702985296667674715, guid: 8241e3e91f3b90b4dbc4e5e4dd716ffa, type: 3}
   spawnInterval: 1.75
   yRange: {x: -1.5, y: 2}
   placeAtRightEdge: 1
   edgePadding: 1
   xSpawn: 8
-  spawnParent: {fileID: 0}
+  spawnParent: {fileID: 1046719337}
 --- !u!4 &1113953223
 Transform:
   m_ObjectHideFlags: 0
@@ -1754,6 +1832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f611395fc40a984ab6f98c9f748feb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  gameState: {fileID: 11400000, guid: 7ace87d138d010e4c8ad855ac77ed20b, type: 2}
   myButton: {fileID: 1951861887}
 --- !u!1 &1972241650
 GameObject:
@@ -1889,6 +1968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9452204d8b5c0324e8c5d6d5ac817457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::button_restart
+  gameState: {fileID: 11400000, guid: 7ace87d138d010e4c8ad855ac77ed20b, type: 2}
   myButton: {fileID: 1972241652}
 --- !u!1 &2034762482
 GameObject:
@@ -1935,16 +2015,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowController
   gameState: {fileID: 11400000, guid: 7ace87d138d010e4c8ad855ac77ed20b, type: 2}
-  startPanel: {fileID: 0}
-  gameOverPanel: {fileID: 0}
+  startPanel: {fileID: 889382697}
+  gameOverPanel: {fileID: 817873624}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1063278439}
-  - {fileID: 1113953223}
   - {fileID: 1937428647}
+  - {fileID: 1063278439}
+  - {fileID: 1046719337}
   - {fileID: 600791844}
+  - {fileID: 322572733}
+  - {fileID: 1113953223}
   - {fileID: 2034762484}
   - {fileID: 1551704199}

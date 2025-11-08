@@ -32,6 +32,7 @@ if (!gameState) return;
 // Subscribe with named handlers so we can cleanly unsubscribe
 gameState.OnGameStart += HandleGameStart;
 gameState.OnGameOver += HandleGameOver;
+gameState.OnGameRestart += RestartSoft;
 gameState.OnPauseChanged += HandlePauseChanged;
 }
 
@@ -42,6 +43,7 @@ if (!gameState) return;
 // Always unsubscribe to avoid duplicate calls/memory leaks
 gameState.OnGameStart -= HandleGameStart;
 gameState.OnGameOver -= HandleGameOver;
+gameState.OnGameRestart -= RestartSoft;
 gameState.OnPauseChanged -= HandlePauseChanged;
 }
 
