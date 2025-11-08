@@ -11,16 +11,20 @@ using UnityEngine.InputSystem; // Keyboard, Mouse, Touchscreen
 [RequireComponent(typeof(Animator))]
 public class Bird : MonoBehaviour, IRestartable
 {
-    [Header("Game State")]
+    [Header("Code Stuff")]
     [SerializeField] GameStateSO gameState;
+
+    [Header("SFX")]
+    [SerializeField] AudioClip sfxFly;
+    [SerializeField] AudioClip sfxFail;
     
     [Header("Flight")]
     [SerializeField] float flapForce = 5f;
     [SerializeField] float maxFallSpeed = -12f;
 
     [Header("Tilt")]
-    [SerializeField] float tiltFactor = 6f;     // degrees per unit of vertical velocity
-    [SerializeField] float tiltLerp = 10f;      // how quickly the bird rotates toward target tilt
+    [SerializeField] float tiltFactor = 6f;
+    [SerializeField] float tiltLerp = 10f;
     [SerializeField] float maxUpTilt = 35f;
     [SerializeField] float maxDownTilt = -80f;
 
@@ -59,6 +63,10 @@ public class Bird : MonoBehaviour, IRestartable
         float targetZ = Mathf.Clamp(rb.linearVelocity.y * tiltFactor, maxDownTilt, maxUpTilt);
         float z = Mathf.LerpAngle(transform.eulerAngles.z, targetZ, Time.deltaTime * tiltLerp);
         transform.rotation = Quaternion.Euler(0f, 0f, z);
+
+        Camera cam = Camera.main;
+        if (transform.position.y <= cam.transform.position.y - cam.orthographicSize & rb.linearVelocityY < 0) Flap(2);
+        if (transform.position.y >= cam.transform.position.y + cam.orthographicSize & rb.linearVelocityY > 0) Flap(-2);
         
 
         if (rb.linearVelocity.y > 0)
@@ -102,15 +110,19 @@ public class Bird : MonoBehaviour, IRestartable
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
     } 
     
-    void Flap()
+    void Flap(float power = 1)
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-        rb.AddForce(Vector2.up * flapForce, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * flapForce * power, ForceMode2D.Impulse);
+        gameState.PlaySound(sfxFly, transform);
     }
 
     void OnCollisionEnter2D(Collision2D _)
     {
-        if (!gameState.GameOver) gameState.EndGame();
+        if (gameState.GameOver) return;
+        gameState.EndGame();
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y*2);
+        gameState.PlaySound(sfxFail, transform);
     }
     
     bool WasPressedThisFrame()

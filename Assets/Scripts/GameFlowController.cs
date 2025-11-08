@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 [DisallowMultipleComponent]
 public class GameFlowController : MonoBehaviour
 {
-[Header("State Asset")]
+[Header("Game State and Sound")]
 [SerializeField] GameStateSO gameState;
+[SerializeField] Transform soundParent;
+[SerializeField] AudioSource soundFXObject;
 
-
-[Header("UI (optional)")]
+[Header("UI")]
 [SerializeField] GameObject startPanel;
 [SerializeField] GameObject gameOverPanel;
 
@@ -34,6 +35,7 @@ gameState.OnGameStart += HandleGameStart;
 gameState.OnGameOver += HandleGameOver;
 gameState.OnGameRestart += RestartSoft;
 gameState.OnPauseChanged += HandlePauseChanged;
+gameState.OnGameSound += HandleSound;
 }
 
 
@@ -45,6 +47,7 @@ gameState.OnGameStart -= HandleGameStart;
 gameState.OnGameOver -= HandleGameOver;
 gameState.OnGameRestart -= RestartSoft;
 gameState.OnPauseChanged -= HandlePauseChanged;
+gameState.OnGameSound -= HandleSound;
 }
 
 
@@ -63,9 +66,19 @@ if (gameOverPanel) gameOverPanel.SetActive(true);
 
 void HandlePauseChanged(bool paused)
 {
-Time.timeScale = paused ? 0f : 1f;
+    Time.timeScale = paused ? 0f : 1f;
 }
 
+
+void HandleSound(AudioClip audioToPlay, Transform tform)
+{
+    AudioSource audioSource = Instantiate(soundFXObject, tform.position, Quaternion.identity, soundParent);
+
+    audioSource.clip = audioToPlay;
+    audioSource.Play();
+
+    Destroy(audioSource.gameObject, audioSource.clip.length);
+}
 
 // --- Button hooks ---
 public void StartGame() => gameState.StartGame();

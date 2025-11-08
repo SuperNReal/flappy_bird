@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   gameState: {fileID: 11400000, guid: 7ace87d138d010e4c8ad855ac77ed20b, type: 2}
+  sfxScore: {fileID: 8300000, guid: fec0c80c210d3c745bb2c53ca9cd314f, type: 3}
 --- !u!1 &4977844679712566985
 GameObject:
   m_ObjectHideFlags: 0
