@@ -3,6 +3,7 @@ using UnityEngine;
 public class ScoreZone : MonoBehaviour
 {
     [SerializeField] GameStateSO gameState;
+    [SerializeField] AudioClip sfxScore;
     
     bool counted = false;
 
@@ -13,6 +14,7 @@ public class ScoreZone : MonoBehaviour
         {
             counted = true;
             gameState.AddScore(1);
+            gameState.PlaySound(sfxScore, transform);
         }
     }
 }
